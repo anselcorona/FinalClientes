@@ -44,9 +44,21 @@ public class ClienteController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/articulos/paginacion", method = RequestMethod.GET, params = {"limit", "offset"})
+    @RequestMapping(value = "/clientes/paginacion", method = RequestMethod.GET, params = {"limit", "offset"})
     public List<Cliente> clientesPaginacion(@RequestParam("limit") int limit, @RequestParam("offset") int offset){
         return clienteServices.paginacionDeClientes(offset, limit);
+    }
+
+    @GetMapping("/clientes/{id}")
+    public Cliente buscarPorId(@PathVariable Long id) {
+
+        return clienteServices.buscarporId(id);
+    }
+
+    @GetMapping("/clientes/cantidad")
+    public int contarClientes(){
+
+        return (int) clienteServices.contarClientes();
     }
 
 }

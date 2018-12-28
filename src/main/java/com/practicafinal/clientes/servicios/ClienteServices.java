@@ -40,6 +40,10 @@ public class ClienteServices {
         return clienteRepository.buscarClientesPorPaginacion(offset, limit);
     }
 
+    public long contarClientes(){
+        return clienteRepository.count();
+    }
+
 
 
 
