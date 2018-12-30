@@ -1,8 +1,10 @@
 package com.practicafinal.clientes.servicios;
 
 import com.practicafinal.clientes.entidades.Cliente;
+import com.practicafinal.clientes.repositorios.ClientePaginacionRepository;
 import com.practicafinal.clientes.repositorios.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +15,9 @@ public class ClienteServices {
 
     @Autowired
     ClienteRepository clienteRepository;
+
+    @Autowired
+    ClientePaginacionRepository clientePaginacionRepository;
 
     public void crearCliente(Cliente cliente){
         clienteRepository.save(cliente);
@@ -36,8 +41,9 @@ public class ClienteServices {
         return clienteRepository.findAllByNombre(nombre);
     }
 
-    public List<Cliente> paginacionDeClientes(int offset, int limit){
-        return clienteRepository.buscarClientesPorPaginacion(offset, limit);
+    public List<Cliente> paginacionDeClientes(Pageable pageable)
+    {
+        return clientePaginacionRepository.findAll(pageable).getContent();
     }
 
     public long contarClientes(){
