@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Clientes",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.practicafinal.clientes.ClientesApplication",
+            "projectName": "clientes",
+            "args": ""
+        }
+    ]
+}

@@ -33,7 +33,7 @@ public class ClienteController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/clientes/devolver")
+    @PostMapping("/clientes/devolver")
     public ResponseEntity<Cliente> devolverNuevoCliente(@RequestBody Cliente cliente) {
         return new ResponseEntity<>(clienteServices.devolverNuevoCliente(cliente), HttpStatus.OK);
     }
