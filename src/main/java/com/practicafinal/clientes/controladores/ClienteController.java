@@ -33,6 +33,11 @@ public class ClienteController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("/clientes/devolver")
+    public ResponseEntity<Cliente> devolverNuevoCliente(@RequestBody Cliente cliente) {
+        return new ResponseEntity<>(clienteServices.devolverNuevoCliente(cliente), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/clientes", method = RequestMethod.PUT, consumes = { "application/json" })
     public ResponseEntity<Cliente> actualizarCliente(@RequestBody Cliente cliente) {
         clienteServices.crearCliente(cliente);

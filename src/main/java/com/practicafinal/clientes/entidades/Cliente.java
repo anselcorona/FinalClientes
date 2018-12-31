@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Date;
 
 @Entity
@@ -27,16 +28,24 @@ public class Cliente implements Serializable {
 
     private Date fechaNacimiento;
 
+    private String contrasena;
+
     public Cliente() {
+
+        fechaNacimiento = new Date();
+
     }
 
-    public Cliente(String foto, String nombre, String correo, String telefono, String direccion, Date fechaNacimiento) {
+    
+
+    public Cliente(String foto, String nombre, String correo, String telefono, String direccion, Date fechaNacimiento, String contrasena) {
         this.foto = foto;
         this.nombre = nombre;
         this.correo = correo;
         this.telefono = telefono;
         this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
+        this.contrasena = contrasena;
     }
 
     public Long getId() {
@@ -93,5 +102,19 @@ public class Cliente implements Serializable {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    /**
+     * @return the contrasena
+     */
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    /**
+     * @param contrasena the contrasena to set
+     */
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }

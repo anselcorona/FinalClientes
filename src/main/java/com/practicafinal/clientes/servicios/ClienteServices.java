@@ -23,6 +23,11 @@ public class ClienteServices {
         clienteRepository.save(cliente);
     }
 
+    public Cliente devolverNuevoCliente(Cliente cliente){
+
+        return clienteRepository.save(cliente);
+    }
+
     public List<Cliente> buscarTodos(){
         return clienteRepository.findAll();
     }
