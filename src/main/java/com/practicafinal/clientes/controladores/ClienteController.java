@@ -30,17 +30,20 @@ public class ClienteController {
     @RequestMapping(value = "/clientes", method = RequestMethod.POST, consumes = { "application/json" })
     public ResponseEntity<Cliente> crearCliente(@RequestBody Cliente cliente) {
         clienteServices.crearCliente(cliente);
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping("/clientes/devolver")
     public ResponseEntity<Cliente> devolverNuevoCliente(@RequestBody Cliente cliente) {
         return new ResponseEntity<>(clienteServices.devolverNuevoCliente(cliente), HttpStatus.OK);
+
     }
 
     @RequestMapping(value = "/clientes", method = RequestMethod.PUT, consumes = { "application/json" })
     public ResponseEntity<Cliente> actualizarCliente(@RequestBody Cliente cliente) {
         clienteServices.crearCliente(cliente);
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -48,6 +51,7 @@ public class ClienteController {
     public ResponseEntity<Cliente> borrarCliente(@RequestParam("id") Long id) {
         Cliente cliente = clienteServices.buscarporId(id);
         clienteServices.borrarCliente(cliente);
+        
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
